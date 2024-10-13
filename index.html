@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live code editor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/dd47584a8e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <label ><i class="fa-brands fa-html5"></i> HTML</label>
+            <textarea id="html-code" onkeyup="run()"></textarea>
+
+            <label ><i class="fa-brands fa-css3-alt"></i> CSS</label>
+            <textarea id="css-code" onkeyup="run()"></textarea>
+
+            <label ><i class="fa-brands fa-js"></i> Javascript</label>
+            <textarea id="js-code" onkeyup="run()"></textarea>
+            
+        </div>
+        <div class="right">
+            <label><i class="fa-solid fa-play" ></i> Output</label>
+            <iframe id="output"></iframe>
+        </div>
+    </div>
+
+
+    <script>
+
+        function run(){
+            let htmlCode = document.getElementById("html-code").value;
+            let cssCode = document.getElementById("css-code").value;
+            let jsCode = document.getElementById("js-code").value;
+            let output = document.getElementById("output");
+            // console.log(htmlCode);
+            output.contentDocument.body.innerHTML = htmlCode + "<style>" + cssCode + "</style>";
+            output.contentWindow.eval(jsCode);
+            // output.contentDocument.body.innerHTML = cssCode;
+
+        }
+
+    </script>
+</body>
+</html>
+
+
+<!-- 
+
+<button onclick="changeColor(this)">
+    click here
+    </button>
+
+
+    button{
+        padding: 20px;
+        background: red;
+        border: 0;
+        margin: 200px;
+        }
+
+
+        function changecolor(x){
+            x.style.background ="black";
+            }
+            
+            -->
